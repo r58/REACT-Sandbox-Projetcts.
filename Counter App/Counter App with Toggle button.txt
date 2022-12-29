@@ -1,0 +1,41 @@
+To make a counter App in which two buttons are there one is start and other is Reset when start button is 
+clicked the count increases by 1 by 1 sec, and start button will become Pause button 
+
+
+import React, { useState, useEffect } from 'react';
+
+function Counter() {
+  const [count, setCount] = useState(0);
+  const [isRunning, setIsRunning] = useState(false);
+
+  useEffect(() => {
+    let interval;
+    if (isRunning) {
+      interval = setInterval(() => {
+        setCount(count + 1);
+      }, 1000);
+    }
+    return () => clearInterval(interval);
+  }, [isRunning, count]);
+
+  const handleStart = () => {
+    setIsRunning(!isRunning);
+  };
+
+  const handleReset = () => {
+    setIsRunning(false);
+    setCount(0);
+  };
+
+  return (
+    <div>
+      <h1>{count}</h1>
+      <button onClick={handleStart}>
+        {isRunning ? 'Pause' : 'Start'}
+      </button>
+      <button onClick={handleReset}>Reset</button>
+    </div>
+  );
+}
+
+export default Counter;

@@ -1,0 +1,16 @@
+import "./styles.css";
+import Childa from './childa'
+
+
+
+function App() {
+  const name = "rohit";
+  return (
+    <div className="App">
+    <Childa name={name}/>
+    </div>
+  );
+}
+export default App;
+
+

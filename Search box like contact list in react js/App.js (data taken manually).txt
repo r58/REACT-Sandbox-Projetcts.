@@ -1,0 +1,40 @@
+import "./styles.css";
+//import data from './data.json';
+import React,{useState} from 'react';
+
+
+const data = ["rohit","karande","mango"]
+
+export default function App() {
+
+
+  const[state,setState] = useState("");
+
+
+  return (
+    <div className="App">
+      <h1>This is data</h1>
+      <input type="text" placeholder="type here..." onChange={(e)=>{
+        setState(e.target.value)
+      }}></input>
+    
+  
+{
+      data.filter(item => {
+        if(state === ""){
+          return item;
+        }
+        else if(item.toLowerCase().includes(state.toLowerCase()))
+        return item;
+      })
+      .map((item,index)=>{
+        return(
+          <div  key={index}>
+            <p>{item}</p>
+            </div>
+        )
+      })}
+      
+    </div>
+  );
+}

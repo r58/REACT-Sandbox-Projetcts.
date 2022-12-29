@@ -1,0 +1,35 @@
+import React,{Component} from 'react';
+import Counter from './counter';
+
+class Student extends Component{
+
+  constructor(){
+    super();
+    this.state={
+      count:0
+    }
+  }
+  
+
+  componentDidMount(){
+    console.log("ComponentDidMount:component is rendered first time")
+
+  }
+
+  increment(){
+    this.setState({count : this.state.count + 1})
+  }
+
+  
+  render(){
+    return(
+      <>
+      <h1> {this.state.count}</h1>
+      <button onClick = {() => {
+        this.increment()
+      }}>ADD</button>
+      </>
+    )
+  }
+}
+export default Student;

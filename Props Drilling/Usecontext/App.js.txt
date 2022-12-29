@@ -1,0 +1,27 @@
+import "./styles.css";
+import React,{createContext} from 'react';
+import Childa from './childa'
+
+
+
+const data = createContext();
+const data1 = createContext();
+
+function App() {
+  const name = "Rohit"
+  const surname = "Karande";
+  return (
+    <div className="App">
+    <data.Provider value={name}>
+      <data1.Provider value={surname}>
+        <Childa />
+      </data1.Provider>
+      </data.Provider>
+    </div>
+  );
+}
+export default App;
+export {data,data1};
+
+
+

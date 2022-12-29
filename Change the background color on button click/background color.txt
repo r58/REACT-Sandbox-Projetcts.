@@ -1,0 +1,27 @@
+import "./styles.css";
+import React,{useState} from 'react';
+
+export default function App() {
+  const[bgcolor,setBgcolor]= useState("white");
+  const[text,setText] = useState("black")
+
+  const change = ()=>{
+    if(bgcolor === "white"){
+      setBgcolor("black");
+      setText("black")
+    }
+    else if(bgcolor === "black"){
+      setBgcolor("white");
+      setText("white");
+    }
+    document.body.style.backgroundColor = bgcolor;
+  }
+  return (
+    <div className="App">
+   <button style={{color:text}} onClick={()=>{
+     change()
+   }}>TOGGLE COLOUR</button>
+   <h2>THIS is white</h2>
+    </div>
+  );
+}

@@ -1,0 +1,36 @@
+import "./styles.css";
+import React,{useState,useEffet, useEffect} from 'react';
+
+export default function App() {
+
+  const[state,setState] = useState([])
+
+  useEffect(() => {
+    fetch("https://gorest.co.in/public/v2/users")
+    .then(response => response.json())
+    .then((data) => {
+      console.log(data)
+      setState(data)
+    })
+    .catch((err) => {
+      console.log(err.message);
+    })
+  },[])
+  return (
+    <div className="App">
+
+      {state.map((item)=>{
+        return(
+          <div key={item.id}>
+            <div>
+              <h2>{item.email}</h2>
+            </div>
+
+          </div>
+        )
+      })}
+    
+     
+    </div>
+  );
+}

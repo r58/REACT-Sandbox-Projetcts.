@@ -1,0 +1,63 @@
+import "./styles.css";
+import axios from 'axios';
+import React,{useState} from 'react';
+
+
+export default function App() {
+
+  const[state,setState] = useState([]);
+
+
+
+
+  const fetch = () =>{
+    axios
+    .get("https://jsonplaceholder.typicode.com/posts")
+    .then((result)=>{
+     // console.log(result)
+      setState(result.data)
+    })
+    .catch((err)=>{
+      console.log(err.message);
+    })
+  }
+  
+ 
+
+  return (
+    <div className="App">
+     <button onClick={()=>{
+       fetch()
+     }}>FETCHDATA</button>
+      
+      
+   
+   {
+     
+  state.length>0 && 
+   
+   <table>
+    <tr>
+    <th>userId</th>
+    <th>id</th>
+    <th>title</th>
+    <th>body</th>
+    </tr>
+    
+    {state.map((item)=>{
+         return(
+           <tr key={item.id}>
+             <th>{item.userId}</th>
+             <th>{item.id}</th>
+             <th>{item.title}</th>
+             <th>{item.body}</th>
+             </tr>
+         )
+       })}
+    </table>
+
+      }    
+
+    </div>
+  );
+}

@@ -1,0 +1,32 @@
+Task is:- 1 - take data from the any mock service with rxjs observable stream 
+2 - Have the distinct name in table 
+3 - Table will have 2 columns, one is for the name and another for the number of times it was duplicated 
+4 - mark the background of that row red if the duplicates are more than 0 and less 3 
+5 - mark row yellow if more than 2 and less than 10 6 -Mark green if more than 10 times
+
+import "./styles.css";
+import Record from './Record'
+
+
+export default function App() {
+  return (
+    <div className="App">
+
+      <tr>
+        <th>name</th>
+        <th>duplicate</th>
+        
+        </tr>
+
+      {Record.map((item)=>{
+        return(
+          <tr key={item.id}>
+            <th><p>{item.name}</p></th>
+            <th><p>{item.name}</p></th>
+            </tr>
+        )
+      })}
+    
+    </div>
+  );
+}

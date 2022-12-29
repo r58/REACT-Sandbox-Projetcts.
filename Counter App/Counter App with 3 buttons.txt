@@ -1,0 +1,54 @@
+when clicked = INCREMENT = count increase by 1sec
+when clicked = DECREMENT = count decrease by 1sec
+pause button will pause counting,
+
+import "./styles.css";
+import React,{useState,useRef} from 'react';
+
+export default function App() {
+  const[count,setCount] = useState(0);
+  const[isrunning,setIsrunning] = useState(false);
+  const intervalid = useRef(null);
+
+  const handleincrement = ()=>{
+    setIsrunning(true);
+  
+    clearInterval(intervalid.current);
+    intervalid.current = setInterval(()=>{
+      setCount(prevCount => prevCount+1)
+    },1000);
+  };
+
+  const handleDecrement = ()=>{
+      setIsrunning(true);
+      
+      clearInterval(intervalid.current);
+      intervalid.current = setInterval(()=>{
+        setCount(prevCount => prevCount-1);
+      },1000);
+    };
+
+    const handlereset = ()=>{
+      setIsrunning(false);
+      
+      clearInterval(intervalid.current)
+    };
+
+  
+
+  return (
+    <div className="App">
+      <h1>{count}</h1>
+      <button onClick={()=>{
+        handleincrement();
+      }}>INCREMENT</button>
+      <button onClick={()=>{
+        handleDecrement();
+      }}>DECREMENT</button>
+      <button onClick={()=>{
+        handlereset();
+      }}>PAUSE</button>
+
+    </div>
+  );
+}

@@ -1,0 +1,25 @@
+1) The main difference between a fragment and a div element in React is that a fragment groups a list of children without adding extra nodes to the DOM, 
+whereas a div element adds an extra node to the DOM as a container for the children.
+
+2) The second version of the MyComponent function, on the other hand, returns a div element containing two p elements. 
+This adds an extra div element to the DOM as a container for the p elements, which can affect the layout and styling of the page.
+
+
+For e.g - 
+	
+
+function MyComponent() {
+  return (
+    // Using a fragment
+    <>
+      <p>First element</p>
+      <p>Second element</p>
+    </>
+    
+    // Using a div element
+    <div>
+      <p>First element</p>
+      <p>Second element</p>
+    </div>
+  );
+}

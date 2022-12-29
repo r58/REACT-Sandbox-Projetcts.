@@ -1,0 +1,2 @@
+1) Coercion is the process of converting a value from one type to another. In functional React components, 
+coercion is often used to convert props or state values from one type to another so that they can be used in the component.

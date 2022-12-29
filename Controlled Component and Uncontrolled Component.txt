@@ -1,0 +1,48 @@
+                    1) Controlled Component :- In React, controlled and uncontrolled components refer to the way in which form data is handled.
+ A controlled component is a form element whose value is managed by React. This means that the value of the input is determined by the state of the component, 
+and not the other way around. An uncontrolled component, on the other hand, 
+is a form element whose value is determined by the DOM rather than the state of the component.
+
+For e.g - 
+		function MyForm() {
+ 			 const [value, setValue] = useState('');
+
+			  const handleChange = event => {
+  			  setValue(event.target.value);
+  			};
+
+ 				 return (
+ 		   <form>
+ 		     <input type="text" value={value} onChange={handleChange} />
+  		  </form>
+		  );
+			}
+
+
+In this example, the input is a controlled component, because its value is determined by the value state property. When the user types something into the input, 
+the handleChange event handler is called, which updates the value state property using the useState hook. This causes the input to re-render with the new value.
+
+
+
+
+2) Uncontrolled Component:- One key difference between controlled and uncontrolled components is that controlled components require the developer to 
+write more code to manage the data and keep the input in sync with the component state. 
+This can make it more difficult to work with, but it also gives the developer more control over the input and how it behaves. 
+In contrast, uncontrolled components are easier to work with, but they can also be less predictable and can lead to harder-to-debug issues.
+
+For e.g -
+
+	function MyForm() {
+  return (
+    <form>
+      <input type="text" defaultValue="Initial value" />
+    </form>
+  );
+}
+
+
+In this example, the input is an uncontrolled component, because its value is determined by the defaultValue attribute, rather than the state of the component. 
+This means that the input will always start with the initial value specified by the defaultValue attribute, 
+and any changes made by the user will not be reflected in the component state.
+
+		

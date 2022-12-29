@@ -1,0 +1,43 @@
+import "./styles.css";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+
+const fetchRandomData = (): Promise<any> => {
+  return axios
+    .get("https://gorest.co.in/public/v2/users")
+    .then(({ data }) => {
+      // handle success
+      console.log(data);
+      return JSON.stringify(data, null, 2);
+    })
+    .catch((err) => {
+      // handle error
+      console.log(err);
+    });
+};
+
+export default function App() {
+  const [count, setCounter] = useState(0);
+  const [randomUserDataJSON, setRandomUserDataJSON] = useState("");
+
+  useEffect(() => {
+    fetchRandomData().then((randomData) => {
+      setRandomUserDataJSON(randomData || "No user data found.");
+    });
+  }, []);
+
+  return (
+    <div className="App">
+      <p>{count}</p>
+      <button
+        onClick={() => {
+          setCounter(count + 1);
+          console.log("foo");
+        }}
+      >
+        INCREASE
+      </button>
+      <p>{randomUserDataJSON}</p>
+    </div>
+  );
+}

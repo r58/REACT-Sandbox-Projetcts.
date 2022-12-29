@@ -1,0 +1,15 @@
+import "./styles.css";
+import React ,{useContext} from 'react';
+import {data,data1} from './App';
+
+
+function Childc() {
+  const firstname = useContext(data);
+  const surname = useContext(data1);
+  return (
+    <div className="App">
+    <h1>HI my name is {firstname} and {surname}</h1>
+    </div>
+  );
+}
+export default Childc;

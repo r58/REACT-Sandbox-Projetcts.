@@ -1,0 +1,25 @@
+import "./styles.css";
+import React,{useState} from 'react';
+
+export default function App() {
+
+  let time = new Date().toLocaleTimeString();
+  const[ctime,setCtime] = useState(time);
+  
+ 
+
+  const updateTime = () => {
+    time = new Date().toLocaleTimeString();
+    setCtime(time);
+    
+  }
+  setInterval(updateTime,1000)
+  return (
+    <div className="App">
+      <h1>ALARM CLOCK</h1>
+      <h2>{ctime}</h2>
+
+      
+    </div>
+  );
+}

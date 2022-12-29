@@ -1,0 +1,24 @@
+import "./styles.css";
+
+import Records from './records.json';
+
+export default function App() {
+  return (
+    <div className="App">
+
+      {
+        Records.map(record => {
+         
+          return(
+            <div>
+            {record.age}
+            </div>
+          )
+          
+        })
+      }
+      
+    
+    </div>
+  );
+}

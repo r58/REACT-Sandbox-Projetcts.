@@ -1,0 +1,71 @@
+To make a form with name age city and onclicking submit button the data will get added in table.....
+
+
+import "./styles.css";
+import React,{useState} from 'react';
+
+export default function App() {
+
+  //const[todo,setTodo] = useState("");
+  const[todo,setTodo] = useState({name:"",age:"",city:"",lname:""});
+  const[todos,setTodos] = useState([]);
+  //const[name,setName] = useState("");
+  //const[lname,setLname] = useState("");
+  //const[age,setAge] = useState("");
+  //const[city,setCity] = useState("");
+
+const handle = (e) =>{
+  const{name,value} = e.target;
+  setTodo({...todo,[name]:value});
+};
+
+
+  const add = (e)=>{
+      e.preventDefault();
+      const alltodo = {name:todo.name,age:todo.age,city:todo.city,lname:todo.lname};
+      setTodos([...todos,alltodo])
+    }
+  
+  return (
+    <div className="App">
+      <h1>FORM</h1>
+      <form onSubmit={add}>
+      <label for>First Name: </label>
+      <input type="text" name="name" value={todo.name} onChange={handle}></input>
+      <br></br>
+      <label for>Age: </label>
+      <input type="text" name="age" value={todo.age} onChange={handle}></input>
+      <br></br>
+      <label for>City: </label>
+      <input type="text" name="city" value={todo.city}  onChange={handle}></input>
+      <br></br>
+      <label for>Last Name: </label>
+      <input type="text" name="lname" value={todo.lname}  onChange={handle}></input>
+      <br></br>
+      <button input type="submit">Submit</button>
+      </form>
+      <br></br>
+      <table id="table">
+        <tr>
+          <th>Name</th>
+          <th>Age</th>
+          <th>City</th>
+          <th>lname</th>
+        </tr>
+      
+      {todos.map((item)=>{
+        return(
+          
+         <tr id="table1" key={item.id}>
+         <th>{item.name}</th>
+         <th>{item.age}</th>
+         <th>{item.city}</th>
+         <th>{item.lname}</th>
+
+         </tr>
+        )
+      })}
+      </table>
+    </div>
+  );
+}

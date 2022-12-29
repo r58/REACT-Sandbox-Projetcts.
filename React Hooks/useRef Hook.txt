@@ -1,0 +1,29 @@
+import "./styles.css";
+import React,{useState,useRef} from 'react';
+
+export default function App() {
+  const refElement = useRef("");
+  const[name,setName] = useState("Rohit");
+  console.log(refElement)
+
+  const Reset = () => {
+    setName("")
+    refElement.current.focus();
+  }
+
+  const handle = () =>{
+    refElement.current.style.color="blue";
+  }
+
+
+  return (
+    <div className="App">
+      <input  ref={refElement} type="text" value={name} onChange={(e)=>{
+        setName(e.target.value)
+      }}></input>
+      <button onClick={Reset}>Search</button>
+      <button onClick={handle}>handleinput</button>
+     
+    </div>
+  );
+}

@@ -1,0 +1,29 @@
+import "./styles.css";
+import React,{useState,useEffect} from 'react';
+
+export default function App() {
+
+  const[count,setCount] = useState(0);
+  const[counter,setCounter] = useState(0);
+
+  useEffect(() => {
+    console.log("yes")
+  },[count])
+
+
+  return (
+    <div className="App">
+  
+   <button onClick={() => {
+     setCount(count+1)
+   }}>Increment</button>
+   <span>{count}</span>
+   <br></br>
+   <br></br>
+   <button onClick={() => {
+     setCounter(counter-1)
+   }}>Decrement</button>
+   <span>{counter}</span>
+    </div>
+  );
+}

@@ -1,0 +1,99 @@
+Given a list of medicines filter medicines according to in stock and not in stock in seperate columns
+
+//import "./styles.css";
+import React from 'react';
+
+const Druglist = ({drugs})=>{
+  const instock = drugs.filter((drug)=>{
+    return drug.in_stock;
+  })
+
+  const notinstock = drugs.filter((drug)=>{
+    return !drug.in_stock;
+  });
+
+  return(
+    <div style={{display: "flex",flexDirection:"row"}}>
+      <div style={{flex:1}}>
+        <h2>IN STOCK</h2>
+        <ul>
+          {instock.map((item)=>{
+            return(
+            <li key="item.id">{item.drugName}</li>
+            )
+          })}
+          </ul>
+        </div>
+        <div style={{flex:1}}>
+          <h2>NOT IN STOCK</h2>
+          <ul>
+            {notinstock.map((item)=>{
+              return(
+                <li key="item.id">{item.drugName}</li>
+              )
+            })}
+            </ul>
+            </div>
+      </div>
+  );
+};
+
+const App = ()=>{
+  const drugs = [  {
+    drugName: 'Crocin Tablet',
+    drugId: 'd1234',
+    in_stock: true,
+    drugSafety: 'LASA'
+  },
+  {
+    drugName: 'Paracetamol',
+    drugId: 'd1235',
+    in_stock: false,
+    drugSafety: 'NARCOTIC'
+  },
+  {
+    drugName: 'Calpol',
+    drugId: 'd1236',
+    in_stock: true,
+    drugSafety: 'LASA'
+  },
+  {
+    drugName: 'Centrizine 50',
+    drugId: 'd1237',
+    in_stock: true,
+    drugSafety: 'HIGH RISK'
+  },
+  {
+    drugName: 'Calpol 80',
+    drugId: 'd1238',
+    in_stock: false,
+    drugSafety: 'HIGH RISK'
+  },
+  {
+    drugName: 'Paracetamol 500',
+    drugId: 'd1230',
+    in_stock: true,
+    drugSafety: 'NARCOTIC'
+  },
+  {
+    drugName: 'Calpol 50',
+    drugId: 'd1239',
+    in_stock: false,
+    drugSafety: 'LASA'
+  },
+  {
+    drugName: 'Paracetamol 40',
+    drugId: 'd1233',
+    in_stock: false,
+    drugSafety: 'NARCOTIC'
+  }
+];
+return(
+  <div>
+    <Druglist drugs={drugs}/>
+    </div>
+)
+};
+export default App;
+
+

@@ -1,0 +1,12 @@
+import "./styles.css";
+import Childc from './childc';
+
+
+function Childb() {
+  return (
+    <div className="App">
+    <Childc />
+    </div>
+  );
+}
+export default Childb;
